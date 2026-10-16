@@ -5,10 +5,10 @@ namespace TombokGyakorlas
 {
     internal class Program
     {
-
-        static int[] tomb = new int[5];
-    static void Feladat6()
+        static Random r = new Random();
+        static void Feladat6()
         {
+            int[] tomb = new int[5];
             for (int i = 0; i < tomb.Length; i++)
             {
                 Console.Write($"Kérem az {i+1}. számot: ");
@@ -40,11 +40,17 @@ namespace TombokGyakorlas
 
         static void Feladat13()
         {
+            int[] tomb = new int[20];
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                tomb[i] = r.Next(-100, 99);
+                Console.WriteLine(tomb[i]);
+            }
 
         }
         static void Main(string[] args)
         {
-            Feladat6();
+            //Feladat6();
             Feladat13();
         }
     }

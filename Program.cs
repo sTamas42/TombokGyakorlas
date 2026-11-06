@@ -5,6 +5,10 @@ namespace TombokGyakorlas
 {
     internal class Program
     {
+        //HIBA:
+        //Egy hiba miatt (valószínűleg az antivírus) nem tudok programoot futtatni (dolgozom a probléma megoldásán)
+
+
         static Random r = new Random();
         static void Feladat6()
         {
@@ -110,7 +114,7 @@ namespace TombokGyakorlas
         static void Main(string[] args)
         {
             //Feladat6();
-            Feladat13();
+            //Feladat13();
             Tombola();
         }
     }

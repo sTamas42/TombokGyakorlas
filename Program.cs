@@ -48,10 +48,70 @@ namespace TombokGyakorlas
             }
 
         }
+
+        //Karneváli Tombola
+        static int[] sorsjegyek = new int[100];
+        static string[] nyeremenyek =
+        {
+            "Élményhajózás a helyi tavon","Vacsora egy exkluzív étteremben", "Belépő a városi uszodába", "Kosárlabda", "Mozijegy-páros"
+        };
+        static int[] nyertesek = new int[5];
+
+        static void SorsjegyekFeltoltese()
+        {
+            for (int i = 0; i < sorsjegyek.Length; i++)
+            {
+                sorsjegyek[i] = i + 1;
+            }
+        }
+
+        static bool MarKihuzott(int szam, int db)
+        {
+            for (int j = 0; j < db; j++)
+            {
+                if (nyertesek[j] == szam)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        static void TombolaSorsolas()
+        {
+            for (int i = 0; i < nyeremenyek.Length; i++)
+            {
+                int szam;
+                do
+                {
+                    szam = sorsjegyek[r.Next(sorsjegyek.Length)];
+                } while (MarKihuzott(szam, i));
+
+                nyertesek[i] = szam;
+            }
+        }
+
+        static void EredmenyekKiirasa()
+        {
+            Console.WriteLine("A tombola nyertesei:");
+            for (int i = 0; i < nyeremenyek.Length; i++)
+            {
+                Console.WriteLine($"{nyertesek[i]}. sorszám: {nyeremenyek[i]}");
+            }
+        }
+
+        static void Tombola()
+        {
+            SorsjegyekFeltoltese();
+            TombolaSorsolas();
+            EredmenyekKiirasa();
+        }
+
         static void Main(string[] args)
         {
             //Feladat6();
             Feladat13();
+            Tombola();
         }
     }
 }
